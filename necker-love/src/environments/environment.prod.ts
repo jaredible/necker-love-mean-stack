@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:8081/api'
+  apiUrl: 'http://neckerlovemean-env.dfm3mg59jf.us-east-1.elasticbeanstalk.com/api'
 };
