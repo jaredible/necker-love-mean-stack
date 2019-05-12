@@ -5,7 +5,6 @@ necker-love-api/images/*
 # misc
 *.DS_Store
 *tgz
-necker-love/dist/*
 
 # exceptions
 !necker-love-api/images/.gitkeep
