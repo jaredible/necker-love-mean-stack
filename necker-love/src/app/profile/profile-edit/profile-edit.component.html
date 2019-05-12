@@ -15,7 +15,7 @@
         </nav>
       </div>
     </header>
-    <main role="main" class="inner cover">
+    <main role="main" class="inner cover my-auto">
       <form [formGroup]="form" (submit)="onSave()" id="form-profile" class="form-profile" style="width: 100%; max-width: 330px; margin: auto;">
         <div class="form-group mb-0 mt-1">
           <button *ngIf="!imagePreview" type="button" class="btn btn-sm btn-secondary text-white" (click)="filePicker.click()">Pick Image</button>
@@ -64,9 +64,9 @@
         <button type="submit" class="btn btn-lg btn-primary btn-block text-white" style="display: block;" [disabled]="form.invalid">Save</button>
       </form>
     </main>
-    <footer class="mastfoot mt-auto">
-      <div class="inner mt-3">
-        <p>
+    <footer class="mastfoot">
+      <div class="inner mt-auto">
+        <p class="mt-5">
           Designed with no sleep by&nbsp;
           <a href="http://jareddiehl.me">Jaredible</a>
         </p>

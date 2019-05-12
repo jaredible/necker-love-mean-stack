@@ -15,7 +15,7 @@
         </nav>
       </div>
     </header>
-    <main role="main" class="inner cover">
+    <main role="main" class="inner cover my-auto">
       <form [formGroup]="form" (submit)="onSearch()" id="form-search" class="form-search" style="width: 100%; max-width: 330px; margin: auto; display: block;">
         <div class="btn-group btn-group-toggle pt-5 pb-1">
           <label
@@ -60,9 +60,9 @@
         <app-profile-list id="profiles-wrapper" class="row justify-content-center mt-5"></app-profile-list>
       </div>
     </main>
-    <footer class="mastfoot mt-auto">
-      <div class="inner mt-3">
-        <p>
+    <footer class="mastfoot">
+      <div class="inner mt-auto">
+        <p class="mt-5">
           Designed with no sleep by&nbsp;
           <a href="http://jareddiehl.me">Jaredible</a>
         </p>
