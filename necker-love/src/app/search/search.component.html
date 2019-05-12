@@ -1,0 +1,72 @@
+<div class="container-fluid text-center">
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column" style="width: 100%;">
+    <header class="masthead">
+      <div class="inner">
+        <h3 class="masthead-brand mb-3">
+          <a [routerLink]="['/']" routerLinkActive="router-link-active">
+            <i class="fas fa-heart font-weight-light"></i>
+            &nbsp;NeckerLove
+          </a>
+        </h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a [routerLink]="['/search']" routerLinkActive="router-link-active" class="nav-link active">Home</a>
+          <a [routerLink]="['/profile', profileId]" routerLinkActive="router-link-active" class="nav-link">Profile</a>
+          <button class="btn btn-outline-secondary link-login ml-3" (click)="onLogout()">Log out</button>
+        </nav>
+      </div>
+    </header>
+    <main role="main" class="inner cover">
+      <form [formGroup]="form" (submit)="onSearch()" id="form-search" class="form-search" style="width: 100%; max-width: 330px; margin: auto; display: block;">
+        <div class="btn-group btn-group-toggle pt-5 pb-1">
+          <label
+          class="btn btn-primary"
+          [ngClass]="{
+            active: inputOption === 'interests'
+          }">
+            <input
+            type="radio"
+            formControlName="option"
+            id="optionInterests"
+            value="interests"
+            autocomplete="off">
+            &nbsp;Interests
+          </label>
+          <label
+          class="btn btn-primary"
+          [ngClass]="{
+            active: inputOption === 'state'
+          }">
+            <input
+            type="radio"
+            formControlName="option"
+            id="optionState"
+            value="state"
+            autocomplete="off">
+            &nbsp;State
+          </label>
+        </div>
+        <div class="input-group mt-1">
+          <input type="text"
+          formControlName="query"
+          class="form-control"
+          placeholder=""
+          autofocus>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" [disabled]="query.invalid">Search</button>
+          </div>
+        </div>
+      </form>
+      <div id="profiles-wrapper" class="row mt-5">
+        <app-profile-list id="profiles-wrapper" class="row justify-content-center mt-5"></app-profile-list>
+      </div>
+    </main>
+    <footer class="mastfoot mt-auto">
+      <div class="inner mt-3">
+        <p>
+          Designed with no sleep by&nbsp;
+          <a [routerLink]="['http://jareddiehl.me']" routerLinkActive="router-link-active">Jaredible</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>

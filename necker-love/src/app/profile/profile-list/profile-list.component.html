@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-sm-6 col-md-4 mt-3 mb-2 align-self-center justify-content-center" *ngFor="let profile of profiles">
+  <div class="card rounded">
+    <div class="card-body shadow-lg text-center p-1 bg-light rounded">
+      <img class="card-img shadow-sm mb-1" [src]="profile.profileImage" [alt]="profile.firstName + ' ' + profile.lastName">
+      <h4 class="card-text font-weight-bold text-dark p-1">{{profile.firstName + ' ' + profile.lastName}}</h4>
+      <p class="card-text font-weight-normal text-dark">{{profile.state}}</p>
+      <p class="card-footer font-weight-light mb-0">{{profile.interests}}</p>
+    </div>
+  </div>
+</div>

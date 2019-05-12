@@ -1,0 +1,33 @@
+<div class="container-fluid text-center">
+  <form [formGroup]="form" (submit)="onLogin()" id="form-login" class="form-login">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">
+      <img class="mb-4" width="72" height="72" src="/assets/images/brand.png" alt="brand">
+    </a>
+    <h1 class="h3 mb-3 font-weight-light text-white">Please log in</h1>
+    <div class="form-group">
+      <input
+      type="email"
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid': email.invalid && (email.dirty || email.touched),
+        'is-valid': email.valid && (email.dirty || email.touched)
+      }"
+      id="inputEmail" class="form-control" placeholder="Email" autofocus>
+    </div>
+    <div class="form-group">
+      <input
+      type="password"
+      formControlName="password"
+      [ngClass]="{
+        'is-invalid': password.invalid && (password.dirty || password.touched),
+        'is-valid': password.valid && (password.dirty || password.touched)
+      }"
+      id="inputPassword" class="form-control" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-lg btn-primary btn-block text-white" [disabled]="!form.valid">Log in</button>
+    <p class="mt-2 mb-2 text-white">
+      Not registered?&nbsp;
+      <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active" class="text-primary">Create an account</a>
+    </p>
+  </form>
+</div>

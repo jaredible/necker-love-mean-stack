@@ -1,0 +1,7 @@
+# dependencies
+node_modules/*
+necker-love-api/images/*
+
+# misc
+*.DS_Store
+*tgz

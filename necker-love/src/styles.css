@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-snack-bar-container button {
+  color: black;
+}
+
+.mat-button {
+  display: block !important;
+  margin: auto !important;
+}
+
+.mat-dialog-container {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.mat-dialog-container button {
+  color: black;
+  background-color: white;
+}

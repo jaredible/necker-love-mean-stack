@@ -1,0 +1,50 @@
+<div class="container-fluid text-center">
+  <form [formGroup]="form" (submit)="onRegister()" id="form-register" class="form-login">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">
+      <img class="mb-4" width="72" height="72" src="/assets/images/brand.png" alt="brand">
+    </a>
+    <h1 class="h3 mb-3 font-weight-light text-white">Welcome</h1>
+    <div class="form-group">
+      <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors && email.errors.required" id="inputEmail-error" class="text-danger">Email is required.</div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors && email.errors.maxlength" id="inputEmail-error" class="text-danger">Email is too long.</div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors && email.errors.email" id="inputEmail-error" class="text-danger">Please enter a valid email address.</div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors && email.errors.emailTaken" id="inputEmail-error" class="text-danger">Email already in use.</div>
+      <input
+      type="email"
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid': email.invalid && (email.dirty || email.touched),
+        'is-valid': email.valid && (email.dirty || email.touched)
+      }"
+      id="inputEmail" class="form-control" placeholder="Email" autofocus>
+    </div>
+    <div class="form-group">
+      <div *ngIf="password.invalid && (password.dirty || password.touched) && password.errors && password.errors.required" id="inputPassword-error" class="text-danger">Password is required.</div>
+      <input
+      type="password"
+      formControlName="password"
+      [ngClass]="{
+        'is-invalid': password.invalid && (password.dirty || password.touched),
+        'is-valid': password.valid && (password.dirty || password.touched)
+      }"
+      id="inputPassword" class="form-control" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" id="inputconfirmPassword-error" class="text-danger">Confirmation is required.</div>
+      <div *ngIf="!confirmPassword.invalid && form.errors && !form.errors.passwordMatch" id="inputPassword-error" class="text-danger">Passwords don't match.</div>
+      <input
+      type="password"
+      formControlName="confirmPassword"
+      [ngClass]="{
+        'is-invalid': confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) || form.errors && !form.errors.passwordMatch,
+        'is-valid': confirmPassword.valid && (confirmPassword.dirty || confirmPassword.touched)
+      }"
+      id="inputConfirmPassword" class="form-control" placeholder="Confirm Password">
+    </div>
+    <button class="btn btn-lg btn-primary btn-block text-white" [disabled]="form.invalid">Register</button>
+    <p class="mt-2 mb-2 text-white">
+      Already have an account?&nbsp;
+      <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" class="text-primary">Log in</a>
+    </p>
+  </form>
+</div>
