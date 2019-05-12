@@ -48,9 +48,6 @@ export class SearchComponent implements OnInit, OnDestroy {
       return;
     }
     this.isLoading = true;
-    console.log(this.profileId);
-    console.log(this.option.value);
-    console.log(this.query.value);
     this.profileService.getProfiles(this.profileId, this.option.value, this.query.value);
   }
 
