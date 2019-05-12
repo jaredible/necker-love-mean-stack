@@ -7,14 +7,29 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/mean', {
-  useNewUrlParser: true,
-  useCreateIndex: true
-}).then(() => {
-  console.log('Connected to database!');
-}).catch(() => {
-  console.log('Connection failed!');
-});
+if (app.get('env') === 'production') {
+  mongoose.connect('mongodb+srv://matchMaker:p%40ssw0rd@cluster0-nnays.mongodb.net/mean?retryWrites=true', {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }).then(() => {
+    console.log('Connected to production database!');
+  }).catch(() => {
+    console.log('Connection failed!');
+  });
+} else {
+  mongoose.connect('mongodb://localhost:27017/mean?retryWrites=true', {
+    auth: {
+      user: 'matchMaker',
+      password: 'p@ssw0rd'
+    },
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }).then(() => {
+    console.log('Connected to development database!');
+  }).catch(() => {
+    console.log('Connection failed!');
+  });
+}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
